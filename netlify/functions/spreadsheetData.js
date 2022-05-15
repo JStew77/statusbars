@@ -1,7 +1,7 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 exports.handler = async function (event, context){
-    const {sheetID} = event.queryStringParameters
+    const sheetID = process.env.SHEET_ID
     const doc = new GoogleSpreadsheet(sheetID)
     doc.useApiKey(process.env.SHEETS_API_KEY);
     // console.log(doc)
@@ -13,7 +13,7 @@ exports.handler = async function (event, context){
         offset: 0,
         limit: 10
     })
-    console.log(rows[0])
+    // console.log(rows[0])
     // await charSheet.loadCells(["A2:N2"])
     const returnArray = rows.map(row => ({
         characterName: row.character_name,

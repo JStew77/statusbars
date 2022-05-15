@@ -1,5 +1,5 @@
-import './App.css';
 import StatusBar from './components/StatusBar';
+import Header from './components/Header'
 import React, { useEffect } from 'react';
 
 function App() {
@@ -15,26 +15,32 @@ function App() {
     />
   ))
 
-  React.useEffect(() =>{
+  useEffect(() =>{
     // console.log("effect")
     async function getStats(){
-        const stats = await fetch(`/.netlify/functions/spreadsheetData?sheetID=1Q48OnP7_MY8kCmUIOb2_0XoRNBnYJQcZGvR0G0yV8Xo`).then(res => res.json())
-        console.log(stats)
+        const stats = await fetch(`/.netlify/functions/spreadsheetData`).then(res => res.json())
+        // console.log(stats)
         return stats
     }
-    getStats().then(result => setCharStats(result))
+    getStats().then(result => setCharStats(result.map(stat => ({
+      ...stat,
+      currentHealth: stat.currentHealth.slice(1)
+    }))))
 
     // this code refreshes the stats
     setTimeout(() => {
         console.log(flipper)
         setFlipper(f => !f)
-    }, 30000)
+    }, 10000)
   }, [flipper])  
 
 
   return (
     <div className="App">
-      {charElements}
+      <Header />
+      <div className='App-bars'>
+        {charElements}
+      </div>
     </div>
   );
 }

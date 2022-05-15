@@ -1,12 +1,18 @@
 import React from "react";
 
 export default function StatusBar(props){    
-    console.log(props)
+    const styles = {
+        width: Math.ceil(100*(props.currentHealth/props.maxHealth)) + "%"
+    }
     return (
-        <div>
-            <h2>{props.characterName}</h2>
-            <p>Total:{props.maxHealth}</p>
-            <p>Remaining:{props.currentHealth}</p>
+        <div className="StatusBar">
+            <div className="StatusBar-info">
+                <h2>{props.characterName}</h2>
+                <p>{props.currentHealth}/{props.maxHealth}</p>
+            </div>
+            <div className="StatusBar-health-bar">
+                <div className="StatusBar-health-bar-moving-bar" style={styles}></div>
+            </div>
         </div>
     )
 
