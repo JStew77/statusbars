@@ -1,26 +1,19 @@
-const { GoogleSpreadsheet } = require('google-spreadsheet');
+const axios = require('axios');
 
 exports.handler = async function (event, context){
     const sheetID = process.env.SHEET_ID
-    const doc = new GoogleSpreadsheet(sheetID)
-    doc.useApiKey(process.env.SHEETS_API_KEY);
-    // console.log(doc)
-    await doc.loadInfo()
-    // console.log(doc)
-    const charSheet = doc.sheetsByTitle["Sheet1"]
-    // console.log(charSheet)
-    const rows = await charSheet.getRows({
-        offset: 0,
-        limit: 10
-    })
-    // console.log(rows[0])
-    // await charSheet.loadCells(["A2:N2"])
-    const returnArray = rows.map(row => ({
-        characterName: row.character_name,
-        maxHealth: row.total_health,
-        currentHealth: row.current_health,
-        rowNumber: row.rowNumber
+    const apiKey = process.env.SHEETS_API_KEY
+
+    const result = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/A:D?key=${apiKey}`)
+
+    console.log(result.data.values)
+    const returnArray = result.data.values.slice(1).map((row, index) => ({
+        characterName: row[1],
+        maxHealth: row[2],
+        currentHealth: row[3],
+        rowNumber: index
     }))
+    console.log(returnArray)
     return {
         statusCode: 200,
         body: JSON.stringify(returnArray)
