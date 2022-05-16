@@ -28,10 +28,10 @@ function App() {
     }))))
 
     // this code refreshes the stats
-    // setTimeout(() => {
-    //     console.log(flipper)
-    //     setFlipper(f => !f)
-    // }, 10000)
+    setTimeout(() => {
+        console.log(flipper)
+        setFlipper(f => !f)
+    }, 10000)
   }, [flipper])  
 
 
