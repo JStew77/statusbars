@@ -11,8 +11,8 @@ body {
 
 .StatusBar{
   width: 292px;
-  height: 65px;
-  padding-bottom: 2px;
+  /* height: 65px; */
+  padding: 15px;
 
   background: #FFF6D8;
   border: 2px solid #FFC400;
@@ -20,11 +20,15 @@ body {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.StatusBar:hover{
+  cursor: pointer;
 }
 
 .StatusBar-info{
-  margin: 0px 20px 0 20px;
+  margin: 0;
   /* background-color: #1f6475; */
   display: flex;
   align-items: center;
@@ -38,6 +42,7 @@ body {
 .StatusBar-info>h2{
   font-family: 'Metamorphous';
   font-style: normal;
+  opacity: 90%;
   font-weight: 400;
   font-size: 19px;
   line-height: 20px;
@@ -46,6 +51,7 @@ body {
 .StatusBar-info>p{
   font-family: 'Almendra';
   font-style: normal;
+  opacity: 90%;
   font-weight: 400;
   font-size: 19px;
   line-height: 21px;
@@ -60,8 +66,40 @@ body {
   /* position: absolute; */
 }
 
+.StatusBar-secondary-info {
+  margin-top: 5px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 35px; */
+  align-items: center;
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 80%;
+  /* background-color: #8FF360; */
+  /* color: #614A00; */
+}
+
+
+.StatusBar-class-titles h3{
+  margin:0;
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.StatusBar-class-titles h4{
+  font-style: italic;
+  font-weight: 400;
+  font-family: 'Cardo';
+  margin:0 0 0 15px;
+}
+
 .StatusBar-health-bar{
-  margin: 2px 20px 0 20px;
+  margin: 2px 0px 0 0px;
   background: rgba(143, 243, 96, 0.35);
 
   border-radius: 2px;
@@ -82,7 +120,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 21px;
-  gap: 21px;
+  gap: 15px;
 }
 
 .Header{

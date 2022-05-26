@@ -12,6 +12,9 @@ function App() {
       characterName = {charStat.characterName}
       maxHealth = {charStat.maxHealth}
       currentHealth = {charStat.currentHealth}
+      class = {charStat.class}
+      subClass = {charStat.subClass}
+      armourClass = {charStat.armourClass}
     />
   ))
 
@@ -29,7 +32,7 @@ function App() {
 
     // this code refreshes the stats
     setTimeout(() => {
-        console.log(flipper)
+        // console.log(flipper)
         setFlipper(f => !f)
     }, 10000)
   }, [flipper])  
