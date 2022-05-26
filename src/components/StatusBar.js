@@ -25,7 +25,7 @@ export default function StatusBar(props){
                 <div className="StatusBar-secondary-info">
                     <div className="StatusBar-class-titles">
                         <h3>{props.class}</h3>
-                        <h4>{props.subClass != "None" && props.subClass}</h4>
+                        <h4>{props.subClass !== "None" && props.subClass}</h4>
                     </div>                  
                     <p>AC:{props.armourClass}</p>
                 </div>
