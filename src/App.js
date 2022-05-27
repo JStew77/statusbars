@@ -19,7 +19,7 @@ function App() {
   ))
 
   useEffect(() =>{
-    // console.log("effect")
+    //  console.log("effect")
     async function getStats(){
         const stats = await fetch(`/.netlify/functions/spreadsheetData`).then(res => res.json())
         // console.log(stats)

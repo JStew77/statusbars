@@ -53,5 +53,6 @@ export default function StatusBar(props){
     //     //     setFlipper(f => !f)
     //     // }, 150000)
     // }, [flipper])
+    
 
 }
