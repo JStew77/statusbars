@@ -42,7 +42,7 @@ body {
 .StatusBar-info>h2{
   font-family: 'Metamorphous', serif;
   font-style: normal;
-  opacity: 90%;
+  opacity: 0.9;
   font-weight: 400;
   font-size: 19px;
   line-height: 20px;
@@ -51,7 +51,7 @@ body {
 .StatusBar-info>p{
   font-family: 'Almendra', serif;
   font-style: normal;
-  opacity: 90%;
+  opacity: 0.9;
   font-weight: 400;
   font-size: 19px;
   line-height: 21px;
@@ -77,7 +77,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  opacity: 80%;
+  opacity: 0.8;
   
 }
 
